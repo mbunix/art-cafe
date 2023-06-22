@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.navbar-brand{
+    font-size: 12px;
+    font-family:sans-serif;
+    display: flex;
+    position: absolute;
+    top: 4%;
+    left: 4%;
+}
+
+.navbar-brand-links{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 100%;
+    margin-left: 40px;
+
+}
+.navbar-brand-links a{
+    display: flex;
+    font-size: medium;
+    font-weight: 500;
+    text-decoration: none;
+    color:hsl(0, 100%, 100%);
+    margin-left: 20px;
+    
+}
+.navbar-brand-img-slider{
+    display: flex;
+    position: relative;
+}
