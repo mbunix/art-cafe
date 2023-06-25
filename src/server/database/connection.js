@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize')
 
-const sequelize = new Sequelize({
+const connectDB = async()=> Sequelize({
   dialect: 'mssql', // Set the dialect to 'mssql' for SQL Server
   host: 'localhost', // Replace with your database host
   port: 1433, // Replace with your database port
@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
 })
 
 // Test the connection
-sequelize
+connectDB
   .authenticate()
   .then(() => {
     console.log('Connection to the database has been established successfully.')
@@ -24,4 +24,4 @@ sequelize
     console.error('Unable to connect to the database:', error)
   })
 
-module.exports = sequelize
+export default connectDB
