@@ -6,32 +6,31 @@
 }
 
 .navbar-brand{
-    font-size: 12px;
+    background-color: #000000;
     font-family:sans-serif;
     display: flex;
-    position: absolute;
-    top: 4%;
-    left: 4%;
+    
+}
+.navbar-brand-logo{
+    background-color: #000000;
+    display: flex;
+    align-items: start;
 }
 
 .navbar-brand-links{
+    background-color: #000000;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
-    width: 100%;
-    margin-left: 40px;
+    justify-content: end;
+    margin-left: 10px;
+    margin-right: 10px;
 
 }
 .navbar-brand-links a{
     display: flex;
-    font-size: medium;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 700;
     text-decoration: none;
     color:hsl(0, 100%, 100%);
-    margin-left: 20px;
+    margin-left: 10px;
     
-}
-.navbar-brand-img-slider{
-    display: flex;
-    position: relative;
 }

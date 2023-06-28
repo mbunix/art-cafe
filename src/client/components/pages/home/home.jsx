@@ -9,10 +9,11 @@ import Message from '../../custom/message'
 import Artwork from '../artwork/artwork'
 import Meta from '../../custom/meta'
 import { listArtwork } from '../../redux/actions/artworkActions'
+import "./home.css"
 
-function Home({ match }) {
-  const keyword = match.params.keyword
-  const pageNumber = match.params.pageNumber || 1
+function Home ({ match }) {
+  const keyword = match?.params?.keyword
+  const pageNumber = match?.params?.pageNumber || 1
   const dispatch = useDispatch()
 
   const artworkList = useSelector(state => state.artworkList)
@@ -32,12 +33,12 @@ function Home({ match }) {
           Go Back
         </Link>
       )}
-      <h1>Our Latest Art in The ArtBoard </h1>
+      <h1 className='home-heading'>Our Latest Art in The ArtBoard </h1>
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>{error}</Message>
-      ) : (
+      ) : artworks ? (
         <>
           <Row>
             {artworks.map(artwork => (
@@ -52,11 +53,11 @@ function Home({ match }) {
             keyword={keyword ? keyword : ''}
           />
         </>
-      )}
+      ) : null}
       <div className='home-container'>
-        <div className='home-slidable1-container'>
+        <div className='home-slidable-container'>
           <img
-            src='src/client/assets/images/image-about-dark.jpg'
+            src='src/client/assets/images/art8.jpeg'
             alt='about-our-furnitures '
             className='about-img-bottom-right'
           ></img>
@@ -72,10 +73,9 @@ function Home({ match }) {
             artists.
           </p>
         </div>
-
-        <div className='home-slidable2-container'>
+        <div className='home-slidable-container'>
           <img
-            src='src/client/assets/images/image-about-light.jpg'
+            src='src/client/assets/images/art1.png'
             alt='about-our-furnitures'
             className='home-img-bottom-left'
           ></img>

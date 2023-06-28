@@ -5,25 +5,24 @@ import SliderContext from './sliderContext'
 
 function Slider() {
   const [index, setIndex] = useState(0)
-  const {isSliderConstrained, setIsSliderConstrained} = useContext(SliderContext)
   const imagePicker = [
     {
-      image: 'src/client/assets/images/desktop-image-hero-1.jpg',
+      image: 'src/client/assets/images/grit-special.png',
       alt: 'desktop1-slider',
       heading: 'Discover Innovative Ways to Decorate',
       text: 'We provide unmatched quality, comfort and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.'
     },
     {
-      image: 'src/client/assets/images/desktop-image-hero-2.jpg',
+      image: 'src/client/assets/images/gypsum-tot.png',
       alt: 'desktop2-slider',
       heading: 'We are Available all Across the Globe',
-      text: 'With Stores all over the world it is easier to find Furniture for your home or place of business. Locally we are available in major cities throughout the country, Find the branch near ou using your store locator ,any questions ? dont hesitate to contact us today'
+      text: 'With Stores all over the world it is easier to find Artistic pieces for your home or place of business. Locally we are available in major cities throughout the country, Find the branch near ou using your store locator ,any questions ? dont hesitate to contact us today'
     },
     {
-      image: 'src/client/assets/images/desktop-image-hero-3.jpg',
+      image: 'src/client/assets/images/mc-artley special.png',
       alt: 'desktop3-slider',
-      heading: 'Manufuctured With the best Materials',
-      text: 'Our Modern Furniture Store Provides a High level of quality ,Our Company has invested in advanced technology to ensure that our products are made as perfect and as consistent as possible, with 3 decades in this industry we have understood ehat customers want for their home and office'
+      heading: 'A mixture of Ancient and Current Atistic Nature',
+      text: 'Our Modern Art Store Provides a High level of quality ,Our Company has invested in advanced technology to ensure that our products are made as perfect and as consistent as possible, with 3 decades in this industry we have understood ehat customers want for their home and office'
     }
   ]
 
@@ -44,9 +43,9 @@ function Slider() {
   },[index, imagePicker]);
 
   return (
-      <SliderContext.Provider value={{ isSliderConstrained }}>
-      <div className={`slider-text${isSliderConstrained ? ' constrained' : ''}`} style={{ width: isSliderConstrained ? '50vw' : '100vw' }}>
-        <img src={imagePicker[index].image} alt={imagePicker[index].alt} />
+    <div>
+      <div className='slider-text'>
+        <img className='slider-image' src={imagePicker[index].image} alt={imagePicker[index].alt } />
           <div className='slider-text-container'>
             <h2 className='slider-text-heading'>
              {imagePicker[index].heading}
@@ -58,7 +57,7 @@ function Slider() {
         <button onClick={handleLeftClick}> <FaAngleLeft /></button>
         <button onClick={handleRightClick}><FaAngleRight /></button>
       </div>
-    </SliderContext.Provider>
+   </div>
   );
 }
 

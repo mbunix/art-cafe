@@ -1,6 +1,6 @@
 import axios from 'axios';  
 import {
-  ARTWORK_LIST_REQUEST,
+ ARTWORK_LIST_REQUEST,
  ARTWORK_LIST_FAIL,
  ARTWORK_DETAILS_REQUEST,
  ARTWORK_DETAILS_SUCCESS,
@@ -30,7 +30,7 @@ export const listArtwork = (keyword = '', pagenumber = '') => async(dispatch) =>
       `/api/artworks?keywork=${keyword} &pagenumber= ${pagenumber}`
     )
     dispatch({
-      type: ARTWORK_LIST_SUCCESS,
+      type: ARTWORK_TOP_SUCCESS,
       payload: data,
     })
   } catch (error) {

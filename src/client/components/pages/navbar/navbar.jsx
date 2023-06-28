@@ -16,10 +16,12 @@ if (event.target.route !== 'home') {
 
   }
   return (
+    <>
     <div className='navbar-brand '>
       <div className='navbar-brand-logo'>
         <img src='src/client/assets/images/logo.svg' alt='logo'></img>
       </div>
+    </div>
       <div className='navbar-brand-links'>
         <NavLink
           to={'/'}
@@ -82,7 +84,7 @@ if (event.target.route !== 'home') {
             isPending ? 'pending' : isActive ? 'active' : ''
           } >Cart</NavLink>
       </div>
-    </div>
+    </>
   )
 }
 

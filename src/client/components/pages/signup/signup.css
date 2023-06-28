@@ -11,37 +11,18 @@
 }
 .signup-form{
     margin: 0;
-    width: 38%;
+    width: 50%;
     height: 100%;
     display: flex;
+    float: left;
     align-items: flex-start;
     flex-direction: column;
     border: 2px solid #790e0e;
 }
 
-.first-name{
+.first-name,.email,.password,.location,.contact{
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.last-name{
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-}
-.email{
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.password{
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

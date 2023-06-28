@@ -7,6 +7,7 @@ import Loader from "../../custom/loader";
 import FormContainer from "../../custom/FormContainer";
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from "../../redux/actions/userActons";
+import "./login.css"
 const Login = () => {
     const dispatch = useDispatch()
     const userLogin = useSelector((state) => state.userLogin)
@@ -19,20 +20,21 @@ const Login = () => {
             localStorage.setItem('userInfo', JSON.stringify(userInfo))
             window.location.href = '/'
         }
-    }, [userInfo])
+    }, [userInfo,history,redirect])
     const submitHandler = (e) => {
         e.preventDefault()
-        setShowLoader(true)
         dispatch(login(email, password))
     }
     return (
-        <FormContainer>
-            <h1>Log In</h1>
+        <>
+        <div>
+        <FormContainer  >
+            <h3 className=" login-heading">Log In</h3>
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
-            <Form onSubmit={submitHandler}>
-                <Form.Group controlId='email'>
-                    <Form.Label>Email Address</Form.Label>
+            <Form onSubmit={submitHandler} className = 'login-form' >
+                <Form.Group controlId='email' className = 'form-control- email'>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control
                         type='email'
                         placeholder='Enter email'
@@ -41,30 +43,41 @@ const Login = () => {
                     ></Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='password'>
-                    <Form.Label>Password</Form.Label>
+                <Form.Group controlId='password' className = 'form-control-password'>
+                    <Form.Label> Password</Form.Label>
                     <Form.Control
                         type='password'
                         placeholder='Enter password'
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                     ></Form.Control>
-                </Form.Group>
+                        </Form.Group>
+        <Row className='py-3'>
+        <Col className='signup-link'>
+                New Customer?{' '}
+                <Link to={redirect ? `/signup?redirect=${redirect}` : '/signup'}>
+        SignUp
+            </Link>
+    <Button type='submit' variant='primary'>
+      {' '}
+      Log In
+    </Button>
+  </Col>
+</Row>
 
-                <Button type='submit' variant='primary'>
-                    Log In
-                </Button>
             </Form>
 
-            <Row className='py-3'>
-                <Col>
-                    New Customer?{' '}
-                    <Link to={redirect ? `/signup?redirect=${redirect}` : '/signup'}>
-                        SignUp
-                    </Link>
-                </Col>
-            </Row>
-        </FormContainer>
+            </FormContainer>
+         </div>
+        <div className="about-art">
+                <h2 className='about-art-heading'>Creativity beyond Scope </h2>  
+                <img  className = 'about-art-image' src="src/client/assets/images/creativity-beyond-scope.png" alt="creativity-beyond-scope"></img>
+                <p className='about-art-text'>Art is a form of expression that can be used to communicate ideas
+                    and feelings. We dispaly the most artistic pieces of both histories
+                    and cultures from generations of artists
+                </p>
+        </div>
+        </>
     );
 
 }
